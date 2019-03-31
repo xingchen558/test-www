@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>前程贷登录投资测试</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 120%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">前程贷登录投资测试</h1>
+<p class='attribute'><strong>测试人员 : </strong> 星辰</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-03-10 15:19:43</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:06:16.376500</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 14，通过 14，通过率= 100.00%</p>
+
+<p class='description'>测试结果</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 14 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 14 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 16px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_0_login.TestLogin</td>
+    <td class="text-center">6</td>
+    <td class="text-center">6</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',6)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_0_wrongDatas_1: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in" align="left">
+    <pre>
+    
+pt1_1: 2019-03-10 15:19:49,244-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:49,277-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.029500,开始等待的时间2019-03-10 15:19:49.245100,等待结束的时间：2019-03-10 15:19:49.274600。
+2019-03-10 15:19:49,280-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:49,291-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:49,294-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 18684720553
+2019-03-10 15:19:49,374-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:19:49,388-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:49,391-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 
+2019-03-10 15:19:49,427-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:19:49,448-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:49,451-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:19:49,519-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//div[@class='form-error-info']")
+2019-03-10 15:19:49,554-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.031500,开始等待的时间2019-03-10 15:19:49.520100,等待结束的时间：2019-03-10 15:19:49.551600。
+2019-03-10 15:19:49,557-INFO-log_log.py-wwm-日志信息:查找模块：登录页面_登录错误_1下的元素：('xpath', "//div[@class='form-error-info']")
+2019-03-10 15:19:49,582-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:49,585-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 登录页面_登录错误_1 下的元素 ('xpath', "//div[@class='form-error-info']")
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_0_wrongDatas_2: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in" align="left">
+    <pre>
+    
+pt1_2: 2019-03-10 15:19:49,874-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:49,894-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.017500,开始等待的时间2019-03-10 15:19:49.874600,等待结束的时间：2019-03-10 15:19:49.892100。
+2019-03-10 15:19:49,897-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:49,905-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:49,908-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 
+2019-03-10 15:19:49,939-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:19:49,948-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:49,951-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 python
+2019-03-10 15:19:49,997-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:19:50,006-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,008-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:19:50,059-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//div[@class='form-error-info']")
+2019-03-10 15:19:50,087-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.024500,开始等待的时间2019-03-10 15:19:50.060100,等待结束的时间：2019-03-10 15:19:50.084600。
+2019-03-10 15:19:50,090-INFO-log_log.py-wwm-日志信息:查找模块：登录页面_登录错误_1下的元素：('xpath', "//div[@class='form-error-info']")
+2019-03-10 15:19:50,100-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,103-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 登录页面_登录错误_1 下的元素 ('xpath', "//div[@class='form-error-info']")
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_0_wrongDatas_3: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse in" align="left">
+    <pre>
+    
+pt1_3: 2019-03-10 15:19:50,365-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:50,396-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:19:50.366100,等待结束的时间：2019-03-10 15:19:50.393600。
+2019-03-10 15:19:50,398-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:50,410-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,413-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 1868472
+2019-03-10 15:19:50,472-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:19:50,483-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,485-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 python
+2019-03-10 15:19:50,537-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:19:50,547-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,549-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:19:50,612-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//div[@class='form-error-info']")
+2019-03-10 15:19:50,637-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.022500,开始等待的时间2019-03-10 15:19:50.612600,等待结束的时间：2019-03-10 15:19:50.635100。
+2019-03-10 15:19:50,640-INFO-log_log.py-wwm-日志信息:查找模块：登录页面_登录错误_1下的元素：('xpath', "//div[@class='form-error-info']")
+2019-03-10 15:19:50,651-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,654-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 登录页面_登录错误_1 下的元素 ('xpath', "//div[@class='form-error-info']")
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_1_errorDatas_1: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse in" align="left">
+    <pre>
+    
+pt1_4: 2019-03-10 15:19:50,875-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:50,896-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.018500,开始等待的时间2019-03-10 15:19:50.875600,等待结束的时间：2019-03-10 15:19:50.894100。
+2019-03-10 15:19:50,899-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:50,910-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,912-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 18684720553
+2019-03-10 15:19:50,978-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:19:50,991-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:50,994-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 111111
+2019-03-10 15:19:51,041-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:19:51,050-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:51,053-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:19:51,110-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//div[@class='layui-layer-content']")
+2019-03-10 15:19:51,652-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.538500,开始等待的时间2019-03-10 15:19:51.111100,等待结束的时间：2019-03-10 15:19:51.649600。
+2019-03-10 15:19:51,655-INFO-log_log.py-wwm-日志信息:查找模块：登录页面_登录错误_2下的元素：('xpath', "//div[@class='layui-layer-content']")
+2019-03-10 15:19:51,665-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:51,669-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 登录页面_登录错误_2 下的元素 ('xpath', "//div[@class='layui-layer-content']")
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_1_errorDatas_2: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse in" align="left">
+    <pre>
+    
+pt1_5: 2019-03-10 15:19:51,942-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:51,964-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.019500,开始等待的时间2019-03-10 15:19:51.942600,等待结束的时间：2019-03-10 15:19:51.962100。
+2019-03-10 15:19:51,967-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:51,977-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:51,980-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 13511112222
+2019-03-10 15:19:52,056-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:19:52,070-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:52,073-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 111111
+2019-03-10 15:19:52,140-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:19:52,153-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:52,156-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:19:52,212-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//div[@class='layui-layer-content']")
+2019-03-10 15:19:52,744-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.529500,开始等待的时间2019-03-10 15:19:52.212600,等待结束的时间：2019-03-10 15:19:52.742100。
+2019-03-10 15:19:52,748-INFO-log_log.py-wwm-日志信息:查找模块：登录页面_登录错误_2下的元素：('xpath', "//div[@class='layui-layer-content']")
+2019-03-10 15:19:52,761-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:52,764-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 登录页面_登录错误_2 下的元素 ('xpath', "//div[@class='layui-layer-content']")
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_2_success</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_6'>通过</button>
+    <div id='div_pt1_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_6'>通过</button>
+    <div id='div_pt1_6' class="collapse in" align="left">
+    <pre>
+    
+pt1_6: 2019-03-10 15:19:53,008-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:53,029-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.017500,开始等待的时间2019-03-10 15:19:53.009100,等待结束的时间：2019-03-10 15:19:53.026600。
+2019-03-10 15:19:53,031-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:19:53,047-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:53,049-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 18684720553
+2019-03-10 15:19:53,124-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:19:53,134-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:53,137-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 python
+2019-03-10 15:19:53,190-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:19:53,200-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:19:53,203-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:19:53,262-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//a[text()='退出']")
+2019-03-10 15:20:14,594-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:21.329500,开始等待的时间2019-03-10 15:19:53.262600,等待结束的时间：2019-03-10 15:20:14.592100。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_1_invent.TestInvest</td>
+    <td class="text-center">4</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',4)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_0_failed_no100</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse in" align="left">
+    <pre>
+    
+pt2_1: 2019-03-10 15:20:43,075-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//a[@class="btn btn-special"]')
+2019-03-10 15:21:04,448-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:21.369500,开始等待的时间2019-03-10 15:20:43.076600,等待结束的时间：2019-03-10 15:21:04.446100。
+2019-03-10 15:21:04,451-INFO-log_log.py-wwm-日志信息:查找模块：首页_投资按钮下的元素：('xpath', '//a[@class="btn btn-special"]')
+2019-03-10 15:21:04,467-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:21:04,470-INFO-log_log.py-wwm-日志信息:点击操作：模块 首页_投资按钮 下的元素 ('xpath', '//a[@class="btn btn-special"]')
+2019-03-10 15:21:25,751-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:21:25,785-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.030000,开始等待的时间2019-03-10 15:21:25.752100,等待结束的时间：2019-03-10 15:21:25.782100。
+2019-03-10 15:21:25,788-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:21:25,799-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:21:25,802-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 150
+2019-03-10 15:21:25,853-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:21:25,878-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:21:25,881-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:21:26,936-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[contains(@class,"layui-layer-dialog")]//div[@class="text-center"]')
+2019-03-10 15:21:26,971-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.031500,开始等待的时间2019-03-10 15:21:26.936600,等待结束的时间：2019-03-10 15:21:26.968100。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_1_failed_invalid_data</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse in" align="left">
+    <pre>
+    
+pt2_2: 2019-03-10 15:21:48,275-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:21:48,306-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.028000,开始等待的时间2019-03-10 15:21:48.275600,等待结束的时间：2019-03-10 15:21:48.303600。
+2019-03-10 15:21:48,309-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:21:48,320-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:21:48,324-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 -100
+2019-03-10 15:21:48,370-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:21:48,387-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:21:48,391-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:21:49,433-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[contains(@class,"layui-layer-dialog")]//div[@class="text-center"]')
+2019-03-10 15:21:49,463-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027000,开始等待的时间2019-03-10 15:21:49.434100,等待结束的时间：2019-03-10 15:21:49.461100。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_2_failed_no</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse in" align="left">
+    <pre>
+    
+pt2_3: 2019-03-10 15:22:10,677-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:22:10,714-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.032000,开始等待的时间2019-03-10 15:22:10.678100,等待结束的时间：2019-03-10 15:22:10.710100。
+2019-03-10 15:22:10,716-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:22:10,729-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:10,732-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 0
+2019-03-10 15:22:10,767-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:22:10,784-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:10,787-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:22:11,842-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[contains(@class,"layui-layer-dialog")]//div[@class="text-center"]')
+2019-03-10 15:22:11,871-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.026500,开始等待的时间2019-03-10 15:22:11.843100,等待结束的时间：2019-03-10 15:22:11.869600。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_3_success</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse in" align="left">
+    <pre>
+    
+pt2_4: 2019-03-10 15:22:33,101-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:22:33,148-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.043500,开始等待的时间2019-03-10 15:22:33.102600,等待结束的时间：2019-03-10 15:22:33.146100。
+2019-03-10 15:22:33,151-INFO-log_log.py-wwm-日志信息:查找模块：标页面_获取金额输入框data-amount属性下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:22:33,162-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:33,165-INFO-log_log.py-wwm-日志信息:获取元素属性：模块 标页面_获取金额输入框data-amount属性 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]") 的属性 data-amount
+2019-03-10 15:22:33,175-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:22:33,191-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.013500,开始等待的时间2019-03-10 15:22:33.175600,等待结束的时间：2019-03-10 15:22:33.189100。
+2019-03-10 15:22:33,194-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:22:33,203-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:33,206-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 1000
+2019-03-10 15:22:33,252-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:22:33,278-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:33,281-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:22:33,350-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[@class="layui-layer-content"]//button[text()="查看并激活"]')
+2019-03-10 15:22:33,897-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.543500,开始等待的时间2019-03-10 15:22:33.351100,等待结束的时间：2019-03-10 15:22:33.894600。
+2019-03-10 15:22:33,901-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资成功弹出框_点击查看并激活下的元素：('xpath', '//div[@class="layui-layer-content"]//button[text()="查看并激活"]')
+2019-03-10 15:22:33,915-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:33,918-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资成功弹出框_点击查看并激活 下的元素 ('xpath', '//div[@class="layui-layer-content"]//button[text()="查看并激活"]')
+2019-03-10 15:22:54,990-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//li[@class="color_sub"]')
+2019-03-10 15:22:55,030-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.037500,开始等待的时间2019-03-10 15:22:54.990600,等待结束的时间：2019-03-10 15:22:55.028100。
+2019-03-10 15:22:55,033-INFO-log_log.py-wwm-日志信息:查找模块：model下的元素：('xpath', '//li[@class="color_sub"]')
+2019-03-10 15:22:55,042-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:22:55,045-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 model 下的元素 ('xpath', '//li[@class="color_sub"]')
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_invest_pytest.TestInvest</td>
+    <td class="text-center">4</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',4)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='pt3_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_0_failed_no100</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse in" align="left">
+    <pre>
+    
+pt3_1: 2019-03-10 15:23:24,207-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//a[@class="btn btn-special"]')
+2019-03-10 15:23:45,743-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:21.532500,开始等待的时间2019-03-10 15:23:24.208100,等待结束的时间：2019-03-10 15:23:45.740600。
+2019-03-10 15:23:45,746-INFO-log_log.py-wwm-日志信息:查找模块：首页_投资按钮下的元素：('xpath', '//a[@class="btn btn-special"]')
+2019-03-10 15:23:45,757-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:23:45,760-INFO-log_log.py-wwm-日志信息:点击操作：模块 首页_投资按钮 下的元素 ('xpath', '//a[@class="btn btn-special"]')
+2019-03-10 15:24:07,057-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:24:07,088-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:24:07.058100,等待结束的时间：2019-03-10 15:24:07.085600。
+2019-03-10 15:24:07,091-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:24:07,103-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:24:07,106-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 150
+2019-03-10 15:24:07,151-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:24:07,168-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:24:07,171-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:24:08,235-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[contains(@class,"layui-layer-dialog")]//div[@class="text-center"]')
+2019-03-10 15:24:08,276-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.037500,开始等待的时间2019-03-10 15:24:08.236100,等待结束的时间：2019-03-10 15:24:08.273600。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_1_failed_invalid_data</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse in" align="left">
+    <pre>
+    
+pt3_2: 2019-03-10 15:24:29,499-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:24:29,539-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.036500,开始等待的时间2019-03-10 15:24:29.500100,等待结束的时间：2019-03-10 15:24:29.536600。
+2019-03-10 15:24:29,542-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:24:29,552-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:24:29,555-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 -100
+2019-03-10 15:24:29,610-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:24:29,629-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:24:29,632-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:24:30,681-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[contains(@class,"layui-layer-dialog")]//div[@class="text-center"]')
+2019-03-10 15:24:30,707-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.023000,开始等待的时间2019-03-10 15:24:30.681600,等待结束的时间：2019-03-10 15:24:30.704600。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_2_failed_no</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_3'>通过</button>
+    <div id='div_pt3_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_3'>通过</button>
+    <div id='div_pt3_3' class="collapse in" align="left">
+    <pre>
+    
+pt3_3: 2019-03-10 15:24:51,924-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:24:51,966-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.038500,开始等待的时间2019-03-10 15:24:51.925600,等待结束的时间：2019-03-10 15:24:51.964100。
+2019-03-10 15:24:51,969-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:24:51,981-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:24:51,983-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 0
+2019-03-10 15:24:52,018-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:24:52,036-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:24:52,039-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:24:53,097-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[contains(@class,"layui-layer-dialog")]//div[@class="text-center"]')
+2019-03-10 15:24:53,128-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:24:53.098600,等待结束的时间：2019-03-10 15:24:53.126100。
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_invest_3_success</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_4'>通过</button>
+    <div id='div_pt3_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_4'>通过</button>
+    <div id='div_pt3_4' class="collapse in" align="left">
+    <pre>
+    
+pt3_4: 2019-03-10 15:25:14,349-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:25:14,379-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:25:14.349600,等待结束的时间：2019-03-10 15:25:14.377100。
+2019-03-10 15:25:14,382-INFO-log_log.py-wwm-日志信息:查找模块：标页面_获取金额输入框data-amount属性下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:25:14,393-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:25:14,396-INFO-log_log.py-wwm-日志信息:获取元素属性：模块 标页面_获取金额输入框data-amount属性 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]") 的属性 data-amount
+2019-03-10 15:25:14,410-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:25:14,429-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.015500,开始等待的时间2019-03-10 15:25:14.411100,等待结束的时间：2019-03-10 15:25:14.426600。
+2019-03-10 15:25:14,431-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:25:14,443-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:25:14,445-INFO-log_log.py-wwm-日志信息:输入操作：模块 标页面_投资操作 下的元素 ('xpath', "//input[contains(@class,'invest-unit-investinput')]")输入文本 1000
+2019-03-10 15:25:14,518-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资操作下的元素：('xpath', '//button[text()="投标"]')
+2019-03-10 15:25:14,535-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:25:14,538-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资操作 下的元素 ('xpath', '//button[text()="投标"]')
+2019-03-10 15:25:14,601-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//div[@class="layui-layer-content"]//button[text()="查看并激活"]')
+2019-03-10 15:25:15,152-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.547500,开始等待的时间2019-03-10 15:25:14.602100,等待结束的时间：2019-03-10 15:25:15.149600。
+2019-03-10 15:25:15,155-INFO-log_log.py-wwm-日志信息:查找模块：标页面_投资成功弹出框_点击查看并激活下的元素：('xpath', '//div[@class="layui-layer-content"]//button[text()="查看并激活"]')
+2019-03-10 15:25:15,169-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:25:15,172-INFO-log_log.py-wwm-日志信息:点击操作：模块 标页面_投资成功弹出框_点击查看并激活 下的元素 ('xpath', '//div[@class="layui-layer-content"]//button[text()="查看并激活"]')
+2019-03-10 15:25:36,250-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', '//li[@class="color_sub"]')
+2019-03-10 15:25:36,285-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.031000,开始等待的时间2019-03-10 15:25:36.251100,等待结束的时间：2019-03-10 15:25:36.282100。
+2019-03-10 15:25:36,289-INFO-log_log.py-wwm-日志信息:查找模块：model下的元素：('xpath', '//li[@class="color_sub"]')
+2019-03-10 15:25:36,302-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:25:36,306-INFO-log_log.py-wwm-日志信息:获取元素文本值：模块 model 下的元素 ('xpath', '//li[@class="color_sub"]')
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>14</td>
+    <td>14</td>
+    <td>0</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="2" name="pytest" skipped="0" tests="2" time="1465.317"><testcase classname="TestCases.test_invest_pytest.TestInvest" file="TestCases\test_invest_pytest.py" line="30" name="test_invest_3_success" time="265.186"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;TestCases.test_invest_pytest.TestInvest testMethod=test_invest_3_success&gt;
+
+    @pytest.mark.smoke
+    @pytest.mark.login
+    def test_invest_3_success(self):
+        # 步骤
+        # 1、首页 - 选标投资。默认选第一个标。
+        # IndexPage(self.driver).click_firstBid()
+        # 2.0标页面 - 金额输入框中，获取用户的当前余额
+        bp = BidPage(self.driver)
+&gt;       userMoney_beforeInvest = bp.get_userLeftMoney()
+
+TestCases\test_invest_pytest.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\bid_page.py:11: in get_userLeftMoney
+    self.wait_eleVisible(loc.money_input, model_name=&quot;标页面_获取用户余额&quot;)
+Common\basepage.py:23: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;c42d52b566220f351cc1f007164c5863&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x00000000044BC390&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</failure><system-err>2019-03-10 15:26:05,566-INFO-log_log.py-wwm-日志信息:等待元素可见：(&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)
+2019-03-10 15:26:05,600-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.031000,开始等待的时间2019-03-10 15:26:05.567100,等待结束的时间：2019-03-10 15:26:05.598100。
+2019-03-10 15:26:05,603-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：(&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)
+2019-03-10 15:26:05,612-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:26:05,615-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 (&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)输入文本 18684720553
+2019-03-10 15:26:05,709-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：(&apos;xpath&apos;, &quot;//input[@name=&apos;password&apos;]&quot;)
+2019-03-10 15:26:05,729-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:26:05,732-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 (&apos;xpath&apos;, &quot;//input[@name=&apos;password&apos;]&quot;)输入文本 python
+2019-03-10 15:26:05,805-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：(&apos;xpath&apos;, &apos;//button&apos;)
+2019-03-10 15:26:05,821-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:26:05,824-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 (&apos;xpath&apos;, &apos;//button&apos;)
+2019-03-10 15:26:05,974-INFO-log_log.py-wwm-日志信息:等待元素可见：(&apos;xpath&apos;, &quot;//input[contains(@class,&apos;invest-unit-investinput&apos;)]&quot;)
+2019-03-10 15:27:06,472-ERROR-log_log.py-wwm-日志信息:等待元素可见超时。
+2019-03-10 15:27:06,831-INFO-log_log.py-wwm-日志信息:截图成功，文件路径为：C:\Users\Administrator\PycharmProjects\TestWeb\Outputs/Screenshots/标页面_获取用户余额_2019-03-10-15-27-06.png
+2019-03-10 15:27:35,296-INFO-log_log.py-wwm-日志信息:等待元素可见：(&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)
+2019-03-10 15:27:35,326-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:27:35.296600,等待结束的时间：2019-03-10 15:27:35.324100。
+2019-03-10 15:27:35,329-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：(&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)
+2019-03-10 15:27:35,341-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:27:35,344-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 (&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)输入文本 18684720553
+2019-03-10 15:27:35,442-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：(&apos;xpath&apos;, &quot;//input[@name=&apos;password&apos;]&quot;)
+2019-03-10 15:27:35,458-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:27:35,461-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 (&apos;xpath&apos;, &quot;//input[@name=&apos;password&apos;]&quot;)输入文本 python
+2019-03-10 15:27:35,548-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：(&apos;xpath&apos;, &apos;//button&apos;)
+2019-03-10 15:27:35,565-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:27:35,568-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 (&apos;xpath&apos;, &apos;//button&apos;)
+2019-03-10 15:27:35,636-INFO-log_log.py-wwm-日志信息:等待元素可见：(&apos;xpath&apos;, &quot;//input[contains(@class,&apos;invest-unit-investinput&apos;)]&quot;)
+2019-03-10 15:28:36,065-ERROR-log_log.py-wwm-日志信息:等待元素可见超时。
+2019-03-10 15:28:36,394-INFO-log_log.py-wwm-日志信息:截图成功，文件路径为：C:\Users\Administrator\PycharmProjects\TestWeb\Outputs/Screenshots/标页面_获取用户余额_2019-03-10-15-28-36.png
+2019-03-10 15:29:05,245-INFO-log_log.py-wwm-日志信息:等待元素可见：(&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)
+2019-03-10 15:29:05,276-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:29:05.245600,等待结束的时间：2019-03-10 15:29:05.273100。
+2019-03-10 15:29:05,278-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：(&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)
+2019-03-10 15:29:05,288-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:29:05,291-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 (&apos;xpath&apos;, &quot;//input[@name=&apos;phone&apos;]&quot;)输入文本 18684720553
+2019-03-10 15:29:05,361-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：(&apos;xpath&apos;, &quot;//input[@name=&apos;password&apos;]&quot;)
+2019-03-10 15:29:05,375-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:29:05,378-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 (&apos;xpath&apos;, &quot;//input[@name=&apos;password&apos;]&quot;)输入文本 python
+2019-03-10 15:29:05,425-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：(&apos;xpath&apos;, &apos;//button&apos;)
+2019-03-10 15:29:05,439-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:29:05,442-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 (&apos;xpath&apos;, &apos;//button&apos;)
+2019-03-10 15:29:05,502-INFO-log_log.py-wwm-日志信息:等待元素可见：(&apos;xpath&apos;, &quot;//input[contains(@class,&apos;invest-unit-investinput&apos;)]&quot;)
+2019-03-10 15:30:05,923-ERROR-log_log.py-wwm-日志信息:等待元素可见超时。
+2019-03-10 15:30:06,260-INFO-log_log.py-wwm-日志信息:截图成功，文件路径为：C:\Users\Administrator\PycharmProjects\TestWeb\Outputs/Screenshots/标页面_获取用户余额_2019-03-10-15-30-05.png
+</system-err></testcase><testcase classname="TestCases.test_login_pytest.TestLogin" file="TestCases\test_login_pytest.py" line="22" name="test_login_success" time="23.184"><failure message="KeyError: &apos;passwd&apos;">self = &lt;TestCases.test_login_pytest.TestLogin object at 0x00000000044B5710&gt;
+prepare_env = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;c63778b3687425fa49a1acf336f2cb30&quot;)&gt;
+
+    @pytest.mark.smoke  # 只能运行的smoke的时候才会运行
+    def test_login_success(self, prepare_env):
+        #步骤：登陆页面的登陆功能 +
+&gt;       LoginPage(prepare_env).login(TD.succ_data[&quot;user&quot;], TD.succ_data[&quot;passwd&quot;])
+E       KeyError: &apos;passwd&apos;
+
+TestCases\test_login_pytest.py:26: KeyError</failure><system-out>========测试类级别的fixture======
+========测试用例级别的fixture======
+========测试类级别的fixture======
+========测试用例级别的fixture======
+========测试类级别的fixture======
+========测试用例级别的fixture======
+</system-out></testcase></testsuite>

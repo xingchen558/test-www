@@ -1,0 +1,42 @@
+2019-03-10 15:26:05,566-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:26:05,600-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.031000,开始等待的时间2019-03-10 15:26:05.567100,等待结束的时间：2019-03-10 15:26:05.598100。
+2019-03-10 15:26:05,603-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:26:05,612-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:26:05,615-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 18684720553
+2019-03-10 15:26:05,709-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:26:05,729-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:26:05,732-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 python
+2019-03-10 15:26:05,805-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:26:05,821-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:26:05,824-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:26:05,974-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:27:06,472-ERROR-log_log.py-wwm-日志信息:等待元素可见超时。
+2019-03-10 15:27:06,831-INFO-log_log.py-wwm-日志信息:截图成功，文件路径为：C:\Users\Administrator\PycharmProjects\TestWeb\Outputs/Screenshots/标页面_获取用户余额_2019-03-10-15-27-06.png
+2019-03-10 15:27:35,296-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:27:35,326-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:27:35.296600,等待结束的时间：2019-03-10 15:27:35.324100。
+2019-03-10 15:27:35,329-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:27:35,341-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:27:35,344-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 18684720553
+2019-03-10 15:27:35,442-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:27:35,458-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:27:35,461-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 python
+2019-03-10 15:27:35,548-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:27:35,565-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:27:35,568-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:27:35,636-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:28:36,065-ERROR-log_log.py-wwm-日志信息:等待元素可见超时。
+2019-03-10 15:28:36,394-INFO-log_log.py-wwm-日志信息:截图成功，文件路径为：C:\Users\Administrator\PycharmProjects\TestWeb\Outputs/Screenshots/标页面_获取用户余额_2019-03-10-15-28-36.png
+2019-03-10 15:29:05,245-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[@name='phone']")
+2019-03-10 15:29:05,276-INFO-log_log.py-wwm-日志信息:元素已可见。等待元素可见总时长：0:00:00.027500,开始等待的时间2019-03-10 15:29:05.245600,等待结束的时间：2019-03-10 15:29:05.273100。
+2019-03-10 15:29:05,278-INFO-log_log.py-wwm-日志信息:查找模块：登录账号下的元素：('xpath', "//input[@name='phone']")
+2019-03-10 15:29:05,288-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:29:05,291-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录账号 下的元素 ('xpath', "//input[@name='phone']")输入文本 18684720553
+2019-03-10 15:29:05,361-INFO-log_log.py-wwm-日志信息:查找模块：登录密码下的元素：('xpath', "//input[@name='password']")
+2019-03-10 15:29:05,375-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:29:05,378-INFO-log_log.py-wwm-日志信息:输入操作：模块 登录密码 下的元素 ('xpath', "//input[@name='password']")输入文本 python
+2019-03-10 15:29:05,425-INFO-log_log.py-wwm-日志信息:查找模块：登录按钮下的元素：('xpath', '//button')
+2019-03-10 15:29:05,439-INFO-log_log.py-wwm-日志信息:查元素成功。
+2019-03-10 15:29:05,442-INFO-log_log.py-wwm-日志信息:点击操作：模块 登录按钮 下的元素 ('xpath', '//button')
+2019-03-10 15:29:05,502-INFO-log_log.py-wwm-日志信息:等待元素可见：('xpath', "//input[contains(@class,'invest-unit-investinput')]")
+2019-03-10 15:30:05,923-ERROR-log_log.py-wwm-日志信息:等待元素可见超时。
+2019-03-10 15:30:06,260-INFO-log_log.py-wwm-日志信息:截图成功，文件路径为：C:\Users\Administrator\PycharmProjects\TestWeb\Outputs/Screenshots/标页面_获取用户余额_2019-03-10-15-30-05.png
